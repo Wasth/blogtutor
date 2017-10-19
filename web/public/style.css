@@ -1,0 +1,453 @@
+/*
+Общие стили
+*/
+
+* {
+	padding: 0;
+	margin: 0;
+	font-weight: 300;
+	
+}
+.clear {
+	clear: both;
+}
+body {
+	background: #efefef;
+	font-family: 'Helvetica';
+}
+#content-wrapper {
+	min-height: calc(100vh - 153px);
+	margin-bottom: 30px;
+}
+#content {
+	width: 1200px;
+	margin: 0 auto;
+}
+/*
+Шапка
+*/
+header #headerWrapper {
+	background: white;
+	/*height: 50px;*/
+}
+header #headerContent {
+	width: 1200px;
+	margin: 0 auto;
+	padding: 21px 0;
+}
+#headerContent #logoPart {
+	float: left;
+
+}
+#logoPart a {
+	color: black;
+	text-decoration: none;
+	font-size: 1.1em;
+}
+#logoPart a:hover {
+	/*text-shadow: 0px 0px 5px rgba(150, 150, 150, 1);*/
+}
+#logoPart a:hover > #logoLetters{
+	text-shadow: 0px 0px 5px rgba(150, 150, 150, 1);
+}
+#logoPart a #logoLetters {
+	background: #2ab7fd;
+	color: white;
+	padding: 10px;
+	font-weight: bold;
+	letter-spacing: 2px;
+}
+#headerContent #buttonPart {
+	float: right;
+	font-size: 1.1em;
+	color: gray;
+}
+#buttonPart a{
+	color: #333;
+	text-decoration: none;
+}
+#buttonPart a:hover {
+	text-decoration: underline;
+}
+
+/*
+футер
+*/
+footer #footerWrapper {
+	background: #2d2d2d;
+	color: gray;
+	/*height: 50px;*/
+}
+footer #footerContent {
+	width: 1200px;
+	margin: 0 auto;
+	padding: 21px 0;
+}
+#footerContent #leftPart {
+	float: left;
+}
+#footerContent #rightPart {
+	float: right;
+}
+#leftPart a {
+	color: gray;
+	text-decoration: none;
+}
+#leftPart a #footerLogoLetters {
+	background: gray;
+	color: #2d2d2d;
+	padding: 10px;
+	font-weight: bold;
+	letter-spacing: 2px;
+}
+#rightPart a {
+	color: gray;
+}
+
+/*
+Основная страница
+*/
+
+/*
+навигация: популярные, последние, категории
+*/
+#navigation {
+	display: inline-block;
+	width: 35%;
+	margin-left: 30px;
+	/*height: 30px;*/
+	/*background: white;*/
+	float: left;
+	margin-top: 30px;
+}
+#navigation a{
+    color: inherit;
+    text-decoration: none;
+}
+#navigation h2.title {
+	text-align: center;
+	font-size: 1.2em;
+	text-transform: uppercase;
+	margin-bottom: 20px;
+}
+#navigation .block {
+	background: white;
+	min-height: 100px;
+	margin-bottom: 30px;
+	padding: 20px;
+}
+/*popular*/
+#navigation .block#popularArticles .article {
+	border-bottom: 1px solid #e2e2e2;
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+}
+#navigation .block#popularArticles .article:last-child {
+	border: 0;
+	margin-bottom: 0;
+}
+#navigation .block#popularArticles .article img{
+	width: 100%;
+}
+#navigation .block#popularArticles .article .title {
+	padding: 10px 0;
+	font-size: 0.99em;
+}
+#navigation .block#popularArticles .article .date {
+	font-size: 0.9em;
+	color: gray;
+}
+
+
+/*recents*/
+#navigation .block#recentArticles .article {
+	border-bottom: 1px solid #e2e2e2;
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+}
+#navigation .block#recentArticles .article:last-child {
+	border: 0;
+	margin-bottom: 0;
+}
+#navigation .block#recentArticles .article .img ,
+#navigation .block#recentArticles .article .content{
+	float: left;
+}
+#navigation .block#recentArticles .article .img {
+	width: 40%;
+}
+#navigation .block#recentArticles .article .content {
+	width: calc(60% - 20px);
+	margin-left: 20px;
+}
+
+#navigation .block#recentArticles .article .img img{
+	width: 100%;
+}
+#navigation .block#recentArticles .article .content h3.title{
+	font-size: 0.99em;
+}
+#navigation .block#recentArticles .article .content p.date {
+	font-size: 0.9em;
+	padding: 5px 0;
+	color: gray;
+}
+
+/*categories*/
+#navigation .block#categories .category span.count{
+	float: right;
+}
+#navigation .block#categories .category{
+	padding-bottom: 20px;
+	border-bottom: 1px solid #e2e2e2;
+	margin-bottom: 20px;
+	text-transform: uppercase;
+}
+#navigation .block#categories .category:last-child {
+	border-bottom: 0;
+	margin-bottom: 0;
+}
+/*
+список статей
+*/
+#articles {
+	display: inline-block;
+	width: calc(65% - 30px);
+	float: left;
+}
+
+
+#articles .article {
+	background: white;
+	margin-top: 30px;
+}
+.article .article-img img {
+	width: 100%;
+}
+.article .category {
+	text-align: center;
+	color: skyblue;
+	padding: 5px 20px;
+	font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+	font-size: 0.9em;
+}
+.article div.title {
+	text-align: center;
+	font-size: 1.1em;
+	padding: 5px 20px;
+}
+.article .description {
+	padding: 5px 20px;
+	text-align: justify;
+	line-height: 1.5;
+}
+.article .article-footer {
+	border-top: 1px solid #dadada;
+	padding: 20px 20px 20px 20px;
+	color: gray;
+	font-size: 0.9em;
+}
+.article-footer .viewed{
+	float: right;
+}
+.article .button-wrapper {
+	text-align: center;
+	padding: 20px;
+}
+.article .button-wrapper .button {
+	border: 2px solid skyblue;
+	padding: 5px 20px;
+	margin: 10px 0;
+	display: inline-block;
+	color: skyblue;
+	font-size: 0.9em;
+	font-weight: bold;
+}
+.article .button-wrapper .button:hover {
+	cursor: pointer;
+	border: 2px solid skyblue;
+	color: white;
+	background: skyblue;
+}
+#pagination {
+	margin-top: 30px;
+}
+#pagination .pgn-page {
+	width: 18px;
+	height: 18px;
+	display: inline-block;
+	text-align: center;
+	padding: 10px;
+	background: white;
+	color: black;
+}
+#pagination .pgn-page.active-pgn {
+	background: deepskyblue;
+	color: white
+}
+#pagination .pgn-page:hover {
+	background: skyblue;
+	color: white;
+	cursor: pointer;
+}
+
+
+/*
+
+Полная статья
+
+*/
+#content-wrapper #fullArticle {
+    display: inline-block;
+    width: calc(65% - 30px);
+    float: left;
+
+    margin-top: 30px;
+}
+#fullArticle #fullArticleBlock {
+    background: white;
+}
+#fullArticle img {
+    width: 100%;
+}
+#fullArticle .category {
+    text-align: center;
+    color: skyblue;
+    padding: 5px 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.9em;
+}
+#fullArticle .title {
+    text-align: center;
+    font-size: 1.1em;
+    padding: 5px 20px;
+}
+#fullArticle .text {
+    padding: 5px 20px;
+    text-align: justify;
+    line-height: 1.5;
+}
+#fullArticle .article-footer {
+    border-top: 1px solid #dadada;
+    padding: 20px 20px 20px 20px;
+    color: gray;
+    font-size: 0.9em;
+}
+#fullArticle .viewed{
+    float: right;
+}
+#tags {
+    padding: 20px;
+}
+#fullArticle #tags .tag {
+    border: 1px solid skyblue;
+    display: inline-block;
+    padding: 5px 20px;
+    color: skyblue;
+}
+
+#comments {
+    padding: 20px;
+    background: white;
+    margin-top: 30px;
+}
+#comments h2 {
+    text-transform: uppercase;
+}
+#comments .comment {
+    padding: 20px 0;
+    clear: both;
+    border-bottom: 1px solid #e2e2e2;
+}
+#comments .comment:last-child {
+    border: 0;
+}
+#comments .comment-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 75px;
+    float: left;
+    background-size: cover;
+    background-position: center center;
+}
+
+#comments .comment-content {
+    width: calc(75% - 10px);
+    float: left;
+    margin-left: 10px;
+}
+#comments .comment-content .comment-date {
+    padding: 10px 0;
+    font-size: 0.9em;
+    color: gray;
+}
+
+#commentForm {
+    margin-top: 30px;
+    background: white;
+    padding: 20px;
+}
+#commentForm h2 {
+    text-transform: uppercase;
+}
+#commentForm textarea {
+    width: calc(100% - 12px);
+    resize: none;
+    background: #efefef;
+    padding: 5px;
+    font-size: 1.1em;
+    margin: 10px 0;
+}
+#commentForm button {
+    padding: 10px 30px;
+    background: #2d2d2d;
+    font-size: 1.1em;
+    color: white;
+    border: 0;
+}
+#commentForm button:hover {
+    background: #5a5959;
+    cursor: pointer;
+}
+
+/*
+404
+*/
+#pnf {
+    /*margin-top: 30px;*/
+    background: white;
+    padding: 50px;
+}
+#pnf-wrapper {
+    padding-top: 30px;
+}
+#pnf {
+    text-align: center;
+    color: #3c3c3c;
+}
+#pnf h1 {
+    font-size: 10em;
+}
+#pnf h2 {
+    font-size: 3em;
+}
+#pnf h3 {
+    font-size: 2em;
+}
+#pnf h3 a {
+    color: #3c3c3c;
+    text-decoration: none;
+    border: 1px solid deepskyblue;
+    color: deepskyblue;
+    padding: 30px;
+    display: inline-block;
+    margin-top: 20px;
+}
+#pnf h3 a:hover {
+    color: white;
+    background: deepskyblue;
+}
