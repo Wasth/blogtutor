@@ -1,43 +1,25 @@
 <?php
-$this->title = "aza";
+$this->title = "Tu Blog - ".$article->title;
 ?>
 <div id="content">
     <div id="fullArticle">
         <div id="fullArticleBlock">
-            <img src="/public/img1.jpg">
+            <img src="<?=$article->getImage() ?>">
             <div class='category'>
-                Travel
+                <?=$article->category->title ?>
             </div>
             <div class='title'>
-                Lorem ipsum dolor sit amet
+                <?=$article->title ?>
             </div>
             <div class='text'>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                <?=$article->content ?>
             </div>
             <div id="tags">
-                <div class="tag">
-                    just4fun
-                </div>
-                <div class="tag">
-                    web-development
-                </div>
+                <?php foreach($article->tags as $tag):?>
+                    <div class='tag'>
+                        <?=$tag->title ?>
+                    </div>
+                <?php endforeach; ?>
             </div>
             <div class='article-footer'>
                 <p><i class="fa fa-user-circle" aria-hidden="true"></i> <span class="author">admin</span>

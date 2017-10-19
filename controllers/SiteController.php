@@ -69,7 +69,7 @@ class SiteController extends Controller
         $count = $query->count();
 
 // create a pagination object with the total count
-        $pagination = new Pagination(['totalCount' => $count,'pageSize' => 2]);
+        $pagination = new Pagination(['totalCount' => $count,'pageSize' => 1]);
 
 // limit the query using the pagination and retrieve the articles
         $articles = $query->offset($pagination->offset)
@@ -140,8 +140,11 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
-    public function actionPost($id = 0){
-        return $this->render('full');
+    public function actionPost($id){
+        $article = Article::findOne($id);
+        return $this->render('full',[
+            'article' => $article
+        ]);
     }
     public function actionCategory($id = 0) {
         return $this->render('category');
