@@ -24,6 +24,6 @@ class PublicAssets extends AssetBundle
     public $js = [
     ];
     public $depends = [
-        // 'yii\bootstrap\BootstrapAsset',
+//         'yii\bootstrap\BootstrapAsset',
     ];
 }

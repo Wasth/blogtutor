@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\data\Pagination;
 use yii\helpers\ArrayHelper;
 
 /**
@@ -130,5 +131,30 @@ class Article extends \yii\db\ActiveRecord
                 $this->link('tags',$tag);
             }
         }
+    }
+    public function getDate(){
+        return Yii::$app->formatter->asDate($this->date,'long');
+    }
+    public static function getPopular(){
+        return Article::find()->orderBy('viewed desc')->limit(3)->all();
+    }
+    public static function getRecent(){
+        return Article::find()->orderBy('date desc')->limit(4)->all();
+    }
+    public static function getArticlesList($pageSize = 3,$category = 'none'){
+        if($category == 'none') {
+            $query = Article::find();
+        }else {
+            $query = Article::find()->where(['category_id'=>$category]);
+        }
+
+        $count = $query->count();
+        $pagination = new Pagination(['totalCount' => $count,'pageSize' => $pageSize]);
+        $articles = $query->offset($pagination->offset)
+            ->limit($pagination->limit)
+            ->all();
+        $data['articles'] = $articles;
+        $data['pagination'] = $pagination;
+        return $data;
     }
 }

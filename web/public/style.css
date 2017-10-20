@@ -279,8 +279,8 @@ footer #footerContent {
 #pagination .pagination li {
 	display: inline-block;
 	background: white;
-	padding: 10px;
 	color: black;
+
 }
 #pagination .pagination li.active {
 	background: deepskyblue;
@@ -288,10 +288,14 @@ footer #footerContent {
 }
 #pagination .pagination li.disabled {
 	cursor: not-allowed;
+	padding: 10px;
 }
 #pagination .pagination li a {
 	color: inherit;
 	text-decoration: none;
+	display: inline-block;
+	padding: 10px;
+
 }
 /*
 

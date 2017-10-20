@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\models\Article;
+use app\models\Category;
 use Yii;
 use yii\data\Pagination;
 use yii\filters\AccessControl;
@@ -61,23 +62,21 @@ class SiteController extends Controller
      *
      * @return string
      */
-    public function actionIndex()
+    public function actionIndex($id='none')
     {
-        $query = Article::find();
 
-// get the total number of articles (but do not fetch the article data yet)
-        $count = $query->count();
+        $data = Article::getArticlesList(2,$id);
 
-// create a pagination object with the total count
-        $pagination = new Pagination(['totalCount' => $count,'pageSize' => 1]);
+        $popular = Article::getPopular();
+        $recents = Article::getRecent();
+        $categories = Category::getAll();
 
-// limit the query using the pagination and retrieve the articles
-        $articles = $query->offset($pagination->offset)
-            ->limit($pagination->limit)
-            ->all();
         return $this->render('index',[
-            'articles' => $articles,
-            'pagination' => $pagination
+            'articles' => $data['articles'],
+            'pagination' => $data['pagination'],
+            'popular' => $popular,
+            'recents' => $recents,
+            'categories' => $categories,
         ]);
     }
 
@@ -141,9 +140,17 @@ class SiteController extends Controller
         return $this->render('about');
     }
     public function actionPost($id){
+
+        $popular = Article::getPopular();
+        $recents = Article::getRecent();
+        $categories = Category::getAll();
+
         $article = Article::findOne($id);
         return $this->render('full',[
-            'article' => $article
+            'article' => $article,
+            'popular' => $popular,
+            'recents' => $recents,
+            'categories' => $categories,
         ]);
     }
     public function actionCategory($id = 0) {
