@@ -6,6 +6,7 @@
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
+use yii\helpers\Url;
 use yii\widgets\Breadcrumbs;
 use app\assets\PublicAssets;
 
@@ -32,7 +33,7 @@ PublicAssets::register($this);
                 <a href="/"><span id='logoLetters'>Tu</span> Blog</a>
             </div>
             <div id="buttonPart">
-                <a href="">Sign Up</a> or <a href="">Sign In</a>
+                <a href="">Sign Up</a> or <a href="<?= Url::toRoute(['auth/login']) ?>">Sign In</a>
             </div>
             <div class='clear'></div>
         </div>
