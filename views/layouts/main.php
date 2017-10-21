@@ -33,7 +33,18 @@ PublicAssets::register($this);
                 <a href="/"><span id='logoLetters'>Tu</span> Blog</a>
             </div>
             <div id="buttonPart">
-                <a href="">Sign Up</a> or <a href="<?= Url::toRoute(['auth/login']) ?>">Sign In</a>
+                <?php
+                    if(Yii::$app->user->isGuest) {
+                        ?>
+                            <a href="">Sign Up</a> or <a href="<?= Url::toRoute(['auth/login']) ?>">Sign In</a>
+                        <?php
+                    }else {
+                        ?>
+                            <a href='<?= Url::toRoute(['auth/logout']) ?>'>Logout</a>
+                        <?php
+                    }
+                ?>
+                
             </div>
             <div class='clear'></div>
         </div>

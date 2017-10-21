@@ -40,7 +40,7 @@ class AuthController extends Controller
     public function actionTest(){
 //        $user = User::findOne(1);
 
-        Yii::$app->user->logout();
+        // Yii::$app->user->logout();
 
     }
 
