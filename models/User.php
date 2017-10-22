@@ -85,4 +85,7 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     public function validatePassword($password){
         return ($this->password == $password);
     }
+    public function create() {
+        return $this->save(false);
+    }
 }

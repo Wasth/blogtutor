@@ -36,7 +36,7 @@ PublicAssets::register($this);
                 <?php
                     if(Yii::$app->user->isGuest) {
                         ?>
-                            <a href="">Sign Up</a> or <a href="<?= Url::toRoute(['auth/login']) ?>">Sign In</a>
+                            <a href="<?= Url::toRoute(['auth/signup']) ?>">Sign Up</a> or <a href="<?= Url::toRoute(['auth/login']) ?>">Sign In</a>
                         <?php
                     }else {
                         ?>
