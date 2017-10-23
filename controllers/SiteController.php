@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use app\models\Article;
 use app\models\Category;
+use app\models\CommentForm;
 use Yii;
 use yii\data\Pagination;
 use yii\filters\AccessControl;
@@ -114,17 +115,19 @@ class SiteController extends Controller
         return $this->render('about');
     }
     public function actionPost($id){
-
+        $article = Article::findOne($id);
         $popular = Article::getPopular();
         $recents = Article::getRecent();
         $categories = Category::getAll();
-
-        $article = Article::findOne($id);
+        $comments = $article->comments;
+        $commentForm = new CommentForm();
         return $this->render('full',[
             'article' => $article,
             'popular' => $popular,
             'recents' => $recents,
             'categories' => $categories,
+            'comments' => $comments,
+            'commentForm' => $commentForm,
         ]);
     }
     public function actionCategory($id = 0) {

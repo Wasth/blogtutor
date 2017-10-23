@@ -48,7 +48,10 @@ class ImageUpload extends Model
         }
     }
     public function deleteCurrentImage($img){ // удаляем текущую картинку
-        unlink($this->getFolder().$img);
+        if($this->fileExists($img)) {
+            unlink($this->getFolder().$img);
+        }
+
     }
     public function getFolder() { // получаем директорию для загрузки
         return Yii::getAlias('@web').'uploads/';

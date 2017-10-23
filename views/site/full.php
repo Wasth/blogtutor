@@ -30,43 +30,29 @@ $this->title = "Tu Blog - ".$article->title;
             </div>
         </div>
 
-        <div id="comments">
-            <h2>3 Comments</h2>
-            <div class="comment">
-                <div class="comment-avatar" style="background-image: url(owl.jpg);">
 
-                </div>
-                <div class="comment-content">
-                    <h3>Elon Musk</h3>
-                    <p class="comment-date">February 12, 2017</p>
-                    <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium animi at atque consectetur consequuntur cum dignissimos, error, et.</p>
-                </div>
-                <div class="clear"></div>
-            </div>
-            <div class="comment">
-                <div class="comment-avatar" style="background-image: url(owl.jpg);">
-                    <!--<img src="/public/owl.jpg">-->
-                </div>
-                <div class="comment-content">
-                    <h3>Elon Musk</h3>
-                    <p class="comment-date">February 12, 2017</p>
-                    <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium animi at atque consectetur consequuntur cum dignissimos, error, et.</p>
-                </div>
-                <div class="clear"></div>
-            </div>
-            <div class="comment">
-                <div class="comment-avatar" style="background-image: url(owl.jpg);">
 
+            <?php if(!empty($comments)): ?>
+            <div id="comments">
+                <h2><?=$comments->count() ?> Comments</h2>
+                <?php foreach ($comments as $comment): ?>
+                <div class="comment">
+                    <div class="comment-avatar" style="background-image: url(<?=$comment->user->image ?>);">
+
+                    </div>
+                        <div class="comment-content">
+                            <h3><?=$comment->user->name ?></h3>
+                            <p class="comment-date"><?=$comment->getDate() ?></p>
+                            <p class="comment-text"><?=$comment->text ?></p>
+                        </div>
+                    <div class="clear"></div>
                 </div>
-                <div class="comment-content">
-                    <h3>Elon Musk</h3>
-                    <p class="comment-date">February 12, 2017</p>
-                    <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium animi at atque consectetur consequuntur cum dignissimos, error, et.</p>
-                </div>
-                <div class="clear"></div>
+
+                <?php endforeach; ?>
             </div>
+            <?php endif; ?>
             <!--<div class="clear"></div>-->
-        </div>
+
 
         <div id="commentForm">
             <h2>Leave a comment</h2>

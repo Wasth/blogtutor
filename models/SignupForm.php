@@ -12,6 +12,7 @@ class SignupForm extends Model {
 		return [
 			[['name','email','password'],'required'],
 			[['name'],'string'],
+            [['name'],'unique','targetClass'=>'app\models\User','targetAttribute'=>'name'],
 			[['email'],'email'],
 			[['email'],'unique','targetClass'=>'app\models\User','targetAttribute'=>'email']
 		];
