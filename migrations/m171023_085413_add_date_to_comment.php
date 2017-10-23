@@ -20,14 +20,12 @@ class m171023_085413_add_date_to_comment extends Migration
     // Use up()/down() to run migration code without a transaction.
     public function up()
     {
-        $this->addColumn(['comment','date']);
+        $this->addColumn('comment','date',$this->date());
     }
 
     public function down()
     {
-        echo "m171023_085413_add_date_to_comment cannot be reverted.\n";
-
-        return false;
+        $this->dropColumn('comment','date');
     }
 
 }

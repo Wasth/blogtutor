@@ -133,4 +133,15 @@ class SiteController extends Controller
     public function actionCategory($id = 0) {
         return $this->render('category');
     }
+    public function actionComment($id){
+        $model = new CommentForm();
+
+        if(Yii::$app->request->isPost) {
+            $model->load(Yii::$app->request->post());
+            if ($model->saveComment($id)) {
+                $article = Article::findOne($id);
+                return $this->redirect(['post','id'=>$id]);
+            }
+        }
+    }
 }

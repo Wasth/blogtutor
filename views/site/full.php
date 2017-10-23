@@ -1,5 +1,6 @@
 <?php
 use yii\helpers\Url;
+use yii\widgets\ActiveForm;
 
 $this->title = "Tu Blog - ".$article->title;
 ?>
@@ -34,12 +35,12 @@ $this->title = "Tu Blog - ".$article->title;
 
             <?php if(!empty($comments)): ?>
             <div id="comments">
-                <h2><?=$comments->count() ?> Comments</h2>
+                <h2><?=sizeof($comments) ?> Comments</h2>
                 <?php foreach ($comments as $comment): ?>
                 <div class="comment">
-                    <div class="comment-avatar" style="background-image: url(<?=$comment->user->image ?>);">
-
-                    </div>
+                    <?php if(isset($comment->user->image)): ?>
+                        <div class="comment-avatar" style="background-image: url(<?= $comment->user->image ?>);"></div>
+                    <?php endif; ?>
                         <div class="comment-content">
                             <h3><?=$comment->user->name ?></h3>
                             <p class="comment-date"><?=$comment->getDate() ?></p>
@@ -53,12 +54,22 @@ $this->title = "Tu Blog - ".$article->title;
             <?php endif; ?>
             <!--<div class="clear"></div>-->
 
-
+        <?php
+            $form = ActiveForm::begin([
+                    'action'=>['comment','id'=>$article->id],
+//                    'options'=>['id'=>'commentForm'],
+            ]);
+        ?>
         <div id="commentForm">
             <h2>Leave a comment</h2>
-            <textarea rows="10" placeholder="Enter comment..."></textarea>
-            <button>SEND</button>
+            <?= $form->field($commentForm,'comment')->textarea(['rows'=>10,'placeholder'=>'Enter comment...'])->label(false); ?>
+<!--            <textarea rows="10" placeholder="Enter comment..."></textarea>-->
+            <button type="submit">SEND</button>
         </div>
+        <?php
+            ActiveForm::end();
+        ?>
+
     </div><?= $this->render('/parts/sidebar.php', [
         'popular' => $popular,
         'recents' => $recents,
