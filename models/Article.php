@@ -162,4 +162,7 @@ class Article extends \yii\db\ActiveRecord
 
         return $this->save();
     }
+    public function getAvailableComments(){
+        return $this->getComments()->where(['status'=>'1'])->all();
+    }
 }

@@ -119,7 +119,7 @@ class SiteController extends Controller
         $popular = Article::getPopular();
         $recents = Article::getRecent();
         $categories = Category::getAll();
-        $comments = $article->comments;
+        $comments = $article->getAvailableComments();
         $commentForm = new CommentForm();
         return $this->render('full',[
             'article' => $article,
@@ -139,7 +139,7 @@ class SiteController extends Controller
         if(Yii::$app->request->isPost) {
             $model->load(Yii::$app->request->post());
             if ($model->saveComment($id)) {
-                $article = Article::findOne($id);
+                Yii::$app->getSession()->setFlash('comment','Your comment will be added soon.');
                 return $this->redirect(['post','id'=>$id]);
             }
         }

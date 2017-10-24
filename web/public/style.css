@@ -397,6 +397,10 @@ footer #footerContent {
 #commentForm h2 {
     text-transform: uppercase;
 }
+#commentForm h3 {
+	color: lightgray;
+
+}
 #commentForm textarea {
     width: calc(100% - 12px);
     resize: none;

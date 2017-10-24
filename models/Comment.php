@@ -71,4 +71,15 @@ class Comment extends \yii\db\ActiveRecord
     public function getDate(){
         return Yii::$app->formatter->asDate($this->date,'long');
     }
+    public function isAllowed(){
+        return $this->status;
+    }
+    public function toggleAllow(){
+        if($this->isAllowed()) {
+            $this->status = 0;
+        }else {
+            $this->status = 1;
+        }
+        return $this->save(false);
+    }
 }
