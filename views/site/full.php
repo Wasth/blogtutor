@@ -25,8 +25,8 @@ $this->title = "Tu Blog - ".$article->title;
                 <?php endforeach; ?>
             </div>
             <div class='article-footer'>
-                <p><i class="fa fa-user-circle" aria-hidden="true"></i> <span class="author">admin</span>
-                    <span class="viewed"><i class="fa fa-eye" aria-hidden="true"></i> 325</span></p>
+                <p><i class="fa fa-user-circle" aria-hidden="true"></i> <span class="author"><?= $article->author->name ?> on <?=$article->getDate() ?></span>
+                    <span class="viewed"><i class="fa fa-eye" aria-hidden="true"></i><?= (int)$article->viewed ?></span></p>
                 <div class="clear"></div>
             </div>
         </div>

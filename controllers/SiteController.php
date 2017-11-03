@@ -66,7 +66,7 @@ class SiteController extends Controller
     public function actionIndex($id='none')
     {
 
-        $data = Article::getArticlesList(2,$id);
+        $data = Article::getArticlesList(4,$id);
 
         $popular = Article::getPopular();
         $recents = Article::getRecent();
@@ -121,6 +121,8 @@ class SiteController extends Controller
         $categories = Category::getAll();
         $comments = $article->getAvailableComments();
         $commentForm = new CommentForm();
+
+        $article->viewedCount();
         return $this->render('full',[
             'article' => $article,
             'popular' => $popular,
