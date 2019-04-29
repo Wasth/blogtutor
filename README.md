@@ -1,4 +1,5 @@
-Blog on Yii2. My first time when I use frameworks for developing. 
+Blog on Yii2. 
 ----------------------------------------------------------------
+### My first time when I use frameworks for developing. 
 
-Markup on blog's pages didn't write on Bootstrap. I decided to make own markup.
+Markup for this blog was not written with Bootstrap, as it was in tutorial. I decided to write whole markup by myself.
